@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi8/ubi:8.0 AS first
-RUN echo I-AM-FROM-FIRST > /tmp/index.htvml
+RUN echo I-AM-FROM-FIRST > /tmp/index.html
 LABEL image=first
 
 
