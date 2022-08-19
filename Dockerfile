@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.0
+FROM registry.access.redhat.com/ubi8/ubi:8.0 AS first
 MAINTAINER ANANDPAVITHRAN<apavithr@redhat.com>
 ENV VAR1=apple\
      VAR2=grape
@@ -15,7 +15,7 @@ CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 LABEL image=first
 
 
-FROM registry.access.redhat.com/ubi8/ubi:8.0
+FROM registry.access.redhat.com/ubi8/ubi:8.0 AS second
 MAINTAINER ANANDPAVITHRAN<apavithr@redhat.com>
 ENV VAR1=apple\
      VAR2=grape
@@ -30,3 +30,6 @@ RUN chgrp -R 0 /var/log/httpd /var/run/httpd /var/www/html && \
 USER 1002
 CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 LABEL image=second
+
+FROM first
+COPY --from=second /var/www/html/index.html /tmp/index.html
