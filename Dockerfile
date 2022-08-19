@@ -15,7 +15,7 @@ CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 LABEL image=first
 
 
-FROM registry.access.redhat.com/ubi8/ubi:8.0 AS second
+FROM ubi:8.0 AS second
 MAINTAINER ANANDPAVITHRAN<apavithr@redhat.com>
 ENV VAR1=apple\
      VAR2=grape
