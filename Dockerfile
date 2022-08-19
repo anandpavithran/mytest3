@@ -31,5 +31,5 @@ USER 1002
 CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 LABEL image=second
 
-FROM ubi8
+FROM registry.access.redhat.com/ubi8/ubi:8.0 
 COPY --from=second /var/www/html/index.html /tmp/index.html
