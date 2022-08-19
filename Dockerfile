@@ -31,5 +31,5 @@ USER 1002
 CMD bash -c "/usr/sbin/httpd -DFOREGROUND"
 LABEL image=second
 
-FROM first
+FROM ubi8
 COPY --from=second /var/www/html/index.html /tmp/index.html
