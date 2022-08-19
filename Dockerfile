@@ -3,7 +3,7 @@ RUN echo I-AM-FROM-FIRST > /tmp/index.htvml
 LABEL image=first
 
 
-FROM ubi:8.0 AS second
+FROM registry.access.redhat.com/ubi8/ubi:8.0 AS second
 MAINTAINER ANANDPAVITHRAN<apavithr@redhat.com>
 ENV VAR1=apple\
      VAR2=grape
